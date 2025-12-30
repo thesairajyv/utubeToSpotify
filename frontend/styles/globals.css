@@ -1,3 +1,148 @@
-html,body,#__next{height:100%;}
-body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial}
-button{padding:8px 12px;border-radius:6px;border:1px solid #ccc;background:#f7f7f7}
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #121212;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --accent-youtube: #ff0000;
+  --accent-spotify: #1DB954;
+  --accent-gradient: linear-gradient(135deg, #FF0000 0%, #1DB954 100%);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html, body, #__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.slide-up {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* Animations */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button Reset & Styles */
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn {
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  border-color: var(--text-secondary);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border: none;
+}
+
+.btn-youtube {
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff4444;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+}
+.btn-youtube:hover {
+  background: #ff0000;
+  color: white;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.btn-spotify {
+  background: rgba(29, 185, 84, 0.1);
+  color: #1DB954;
+  border: 1px solid rgba(29, 185, 84, 0.2);
+}
+.btn-spotify:hover {
+  background: #1DB954;
+  color: white;
+  box-shadow: 0 0 20px rgba(29, 185, 84, 0.4);
+}
+
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card Styles */
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: var(--transition);
+}
+
+.card:hover {
+  border-color: var(--text-secondary);
+  transform: translateY(-2px);
+}
+
+/* Typography map */
+h1 { font-size: 3.5rem; letter-spacing: -0.05em; margin: 0; line-height: 1.1; }
+h2 { font-size: 2rem; letter-spacing: -0.03em; margin: 0; }
+p { color: var(--text-secondary); line-height: 1.6; font-size: 1.125rem; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+

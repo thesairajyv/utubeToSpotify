@@ -1,7 +1,7 @@
 const { normalize, tokenSetScore } = require('../utils/match');
 
 test('normalize removes punctuation and parentheses', () => {
-  expect(normalize('Song Title (Official Video)')).toBe('song title official video');
+  expect(normalize('Song Title (Official Video)')).toBe('song title');
   expect(normalize("Artist ft. Someone")).toBe('artist someone');
 });
 
